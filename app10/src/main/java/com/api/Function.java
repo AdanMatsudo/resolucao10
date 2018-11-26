@@ -14,7 +14,7 @@ public class Function {
 
     public List<Funcionario> fakelist() {
 
-        funcionarios.add(new Funcionario(new Long(1), "gardheam", 44, 332142151));
+        funcionarios.add(new Funcionario(new Long(1), "Matsudo", 44, 332142151));
         funcionarios.add(new Funcionario(new Long(2), "guifaydsbfiyuasardheam", 44, 332142151));
         funcionarios.add(new Funcionario(new Long(3), "agsjgnoasdam", 44, 332142151));
         funcionarios.add(new Funcionario(new Long(4), "gaasdgasdg", 44, 332142151));
