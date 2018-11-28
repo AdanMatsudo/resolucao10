@@ -38,7 +38,7 @@ public class Function {
 
     @FunctionName("read-funcionario")
     public List<Funcionario> readFuncionario(@HttpTrigger(name = "readFuncinario", methods = {
-            HttpMethod.GET }, authLevel = AuthorizationLevel.FUNCTION, route = "funcionario") String funcionario) {
+            HttpMethod.GET }, route = "funcionario") String funcionario) {
         //retorna a lista completa
 
         return funcionarios;
@@ -46,7 +46,7 @@ public class Function {
 
     @FunctionName("edit-funcionario")
     public Funcionario editFuncionario(@HttpTrigger(name = "editFuncionario", methods = {
-            HttpMethod.PUT }, authLevel = AuthorizationLevel.FUNCTION, route = "funcionario") Funcionario funcionario) {
+            HttpMethod.PUT }, route = "funcionario") Funcionario funcionario) {
 
         // operações de modificar a lista
 
@@ -63,7 +63,7 @@ public class Function {
 
     @FunctionName("delete-funcionario")
     public String deleteFuncionario(@HttpTrigger(name = "deleteFuncionario", methods = {
-            HttpMethod.DELETE }, authLevel = AuthorizationLevel.FUNCTION, route = "funcionario") int id) {
+            HttpMethod.DELETE }, route = "funcionario") int id) {
 
         //operação de deletar da lista   
         for (Funcionario funcionario : funcionarios) {
