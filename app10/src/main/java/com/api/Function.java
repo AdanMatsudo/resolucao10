@@ -4,6 +4,9 @@ import java.util.*;
 import com.microsoft.azure.functions.annotation.*;
 import com.microsoft.azure.functions.*;
 
+import Lombok.Getter;
+import Lombok.Setter;
+
 /**
  * Azure Functions with HTTP Trigger.
  */
@@ -14,25 +17,21 @@ public class Function {
 
     public List<Funcionario> fakelist() {
 
-        funcionarios.add(new Funcionario(new Long(1), "Matsudo", 44, 332142151));
-        funcionarios.add(new Funcionario(new Long(2), "guifaydsbfiyuasardheam", 44, 332142151));
-        funcionarios.add(new Funcionario(new Long(3), "agsjgnoasdam", 44, 332142151));
-        funcionarios.add(new Funcionario(new Long(4), "gaasdgasdg", 44, 332142151));
-        funcionarios.add(new Funcionario(new Long(5), "asdgasgsaardheam", 44, 332142151));
+        funcionarios.add(new Funcionario(new Long(1), "Matsudo", 18, 1800));
 
         return funcionarios;
     }
 
     @FunctionName("create-funcionario")
-    public Funcionario createFuncionario(@HttpTrigger(name = "createFuncionario", methods = {
-            HttpMethod.POST }, authLevel = AuthorizationLevel.FUNCTION, route = "funcionario") Funcionario funcionario) {
+    public Funcionario create(@HttpTrigger(name = "createFuncionario", methods = {
+            HttpMethod.POST }, route = "funcionario") Funcionario funcionario) {
 
         // operações de add na lista
         Funcionario func = new Funcionario();
         func.setID(funcionario.getID());
         func.setNome(funcionario.getNome());
         func.setIdade(funcionario.getIdade());
-        func.setSalário(funcionario.getSalário());
+        func.setSalário(funcionario.getSalario());
 
         return func;
     }
@@ -51,26 +50,41 @@ public class Function {
 
         // operações de modificar a lista
 
-        return funcionario;
+        for (Funcionario funcionario : funcionarios) {
+        	funcionario.setID(funcionario.getID);
+        	funcionario.setNome(funcionario.getNome);
+        	funcionario.setIdade(funcionario.getIdade);
+        	funcionario.setSalario(funcionario.getSalario);
+        	
+        }
+
+        return funcionarios;
     }
 
     @FunctionName("delete-funcionario")
     public String deleteFuncionario(@HttpTrigger(name = "deleteFuncionario", methods = {
             HttpMethod.DELETE }, authLevel = AuthorizationLevel.FUNCTION, route = "funcionario") int id) {
 
-        //operação de deletar da lista        
+        //operação de deletar da lista   
+        for (Funcionario funcionario : funcionarios) {
+             	if(funcionario.getID == id){
+
+             		funcionarios.delete(id);
+             	}
+             }     
 
         return "ok";
     }
 
 }
-
+@Getter
+@Setter
 class Funcionario {
 
     Long ID;
     String nome;
     int idade;
-    double salário;
+    double salario;
 
     Funcionario(){
 
@@ -83,59 +97,5 @@ class Funcionario {
         this.salário = salario;
     }
 
-    /**
-     * @return the iD
-     */
-    public Long getID() {
-        return ID;
-    }
-
-    /**
-     * @return the idade
-     */
-    public int getIdade() {
-        return idade;
-    }
-
-    /**
-     * @return the nome
-     */
-    public String getNome() {
-        return nome;
-    }
-
-    /**
-     * @return the salário
-     */
-    public double getSalário() {
-        return salário;
-    }
-
-    /**
-     * @param iD the iD to set
-     */
-    public void setID(Long iD) {
-        ID = iD;
-    }
-
-    /**
-     * @param idade the idade to set
-     */
-    public void setIdade(int idade) {
-        this.idade = idade;
-    }
-
-    /**
-     * @param nome the nome to set
-     */
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    /**
-     * @param salário the salário to set
-     */
-    public void setSalário(double salário) {
-        this.salário = salário;
-    }
 }
+
