@@ -51,10 +51,10 @@ public class Function {
         // operações de modificar a lista
 
         for (Funcionario funcionario : funcionarios) {
-        	funcionario.setID(funcionario.getID);
-        	funcionario.setNome(funcionario.getNome);
-        	funcionario.setIdade(funcionario.getIdade);
-        	funcionario.setSalario(funcionario.getSalario);
+                if(funcionario.ID == funcionario.ID){
+                    funcionario.setNome(funcionario.getNome());
+                    funcionario.setIdade(funcionario.getIdade());
+                    funcionario.setSalário(funcionario.getSalário());
         	
         }
 
