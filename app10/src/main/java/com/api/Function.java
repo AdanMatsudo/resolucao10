@@ -4,8 +4,7 @@ import java.util.*;
 import com.microsoft.azure.functions.annotation.*;
 import com.microsoft.azure.functions.*;
 
-import Lombok.Getter;
-import Lombok.Setter;
+import Lombok.Data;
 
 /**
  * Azure Functions with HTTP Trigger.
@@ -77,8 +76,7 @@ public class Function {
     }
 
 }
-@Getter
-@Setter
+@Data
 class Funcionario {
 
     Long ID;
