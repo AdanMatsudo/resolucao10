@@ -34,7 +34,7 @@ public class Function {
         func.setIdade(funcionario.getIdade());
         func.setSalário(funcionario.getSalario());
 
-        return func;
+        return funcionario;
     }
 
     @FunctionName("read-funcionario")
@@ -55,11 +55,11 @@ public class Function {
                 if(funcionario.ID == funcionario.ID){
                     funcionario.setNome(funcionario.getNome());
                     funcionario.setIdade(funcionario.getIdade());
-                    funcionario.setSalário(funcionario.getSalário());
+                    funcionario.setSalário(funcionario.getSalario());
         	
         }
 
-        return funcionarios;
+        return funcionario;
     }
 
     @FunctionName("delete-funcionario")
